@@ -1,5 +1,6 @@
 import React from "react";
 import Dynamsoft from "dwt";
+import image from "./image";
 
 export default class DWT extends React.Component {
   state = { webTwain: null };
@@ -9,7 +10,8 @@ export default class DWT extends React.Component {
     Dynamsoft.DWT.RegisterEvent("OnWebTwainReady", () => {
       this.Dynamsoft_OnReady();
     });
-    Dynamsoft.DWT.ProductKey = "";
+    Dynamsoft.DWT.ProductKey =
+      "f0068fQAAANJCya573H7ho9wt4yMUbPvO/EkBhMZW44gSppeJVfhd8a1RqXPjRJmqHxSDI4BLmB2YeV3ysZzotZsuE7CXm8Y=";
     Dynamsoft.DWT.ResourcesPath = "/dwt-resources";
     Dynamsoft.DWT.Containers = [
       {
@@ -19,7 +21,7 @@ export default class DWT extends React.Component {
         Height: "400px",
       },
     ];
-    Dynamsoft.DWT.CustomizableDisplayInfo.loaderBarSource = "./logo.svg";
+    Dynamsoft.DWT.CustomizableDisplayInfo.loaderBarSource = image;
     Dynamsoft.DWT.Load();
   }
   Dynamsoft_OnReady() {
